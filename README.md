@@ -410,6 +410,89 @@ Suggested sequence:
 - repeat or reset,
 - error handling.
 
+This is the algorithm sequence of the code that follows the flowchart:
+
+START
+Initialization
+
+1.	Initialize App communication using App Inventor link. 
+2.	Define servo duty cycle limits (MIN = 26, MAX = 128). 
+3.	Initialize: 
+o	5 positional servos 
+o	1 continuous servo 
+4.	Set all servos to 0° (rest position). 
+5.	Stop continuous servo. 
+6.	Initialize ultrasonic sensor (TRIG + ECHO pins). 
+7.	Initialize NeoPixel LED (16 LEDs). 
+8.	Initialize: 
+o	Game state variables (active, press_count, etc.) 
+o	Win detection variables (stable_count, win_latch) 
+o	Sweep control variables
+
+Main Loop
+Step 1: Process App Input
+
+•	Check for incoming app requests 
+•	IF request contains servo number (1–5): 
+o	Increment corresponding press_count[i]
+
+Step 2: Win Detection (Ultrasonic Sensor)
+
+•	Measure distance using ultrasonic sensor 
+•	IF distance is: 
+o	Valid AND between 2 cm and WIN_DISTANCE
+→ Increment stable_count 
+o	ELSE
+→ Reset stable_count = 0 
+•	IF stable_count ≥ REQUIRED_STABLE: 
+o	Set win_latch = True 
+o	Stop continuous servo 
+o	Run celebration LED animation 
+o	Clear LEDs
+
+Step 3: LED Animation
+
+•	IF game NOT won: 
+o	Run rotating red LED pattern 
+
+Step 4: Servo Queue System (for 5 servos)
+
+FOR each servo i from 0 to 4:
+•	Start Movement 
+o	IF: 
+	Servo is NOT active 
+	press_count[i] > 0 
+o	THEN: 
+	Move servo to TRIGGER_ANGLE 
+	Mark active[i] = True 
+	Set return_time[i] = now + RETURN_DELAY 
+•	Return Movement 
+o	IF: 
+	Servo is active 
+	Current time ≥ return_time 
+o	THEN: 
+	Move servo back to 0° 
+	Turn off PWM (duty(0)) 
+	Mark active[i] = False 
+	Decrease press_count[i]
+
+Step 5: Continuous Servo Sweep
+
+•	IF game NOT won: 
+o	Every SWEEP_INTERVAL: 
+	Toggle direction 
+o	IF forward:
+→ Set speed = CONT_FWD 
+o	ELSE:
+→ Set speed = CONT_REV
+
+Step 6: Delay
+
+•	Wait 20 ms 
+•	Repeat loop
+
+This is the flowchart for the code:
+
 **Insert image below:**  
 `[Upload image and link here]`
 
