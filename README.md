@@ -558,21 +558,21 @@ Include:
 
 ### Week 1 — Plan and De-risk
 Expected outcomes:
-- [ ] Idea finalized
-- [ ] Core interaction decided
-- [ ] Sketches made
+- [yes ] Idea finalized
+- [yes ] Core interaction decided
+- [yes ] Sketches made
 - [ ] BOM completed
-- [ ] Purchase needs identified
-- [ ] Key uncertainty identified
-- [ ] Basic feasibility tested
+- [ yes] Purchase needs identified
+- [ yes] Key uncertainty identified
+- [ yes] Basic feasibility tested
 
 ### Week 2 — Build Subsystems
 Expected outcomes:
-- [ ] Electronics tests completed
-- [ ] CAD / structure planning completed
-- [ ] App UI started if needed
-- [ ] Mechanical concept tested
-- [ ] Main subsystems partially working
+- [yes ] Electronics tests completed
+- [ yes] CAD / structure planning completed
+- [yes ] App UI started if needed
+- [yes ] Mechanical concept tested
+- [ yes] Main subsystems partially working
 
 ### Week 3 — Integrate
 Expected outcomes:
