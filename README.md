@@ -720,7 +720,11 @@ Include:
 - how documentation will be maintained.
 
 **Response:**  
-`[Write here]`
+`[- The tasks were divided as such: Khushi to handle the physical materials and app mechanics, Suksha to handle the working of the code and software debugging.
+    - The decisions were made smoothly as communication was direct and immediate. Each memeber would keep track of their work and share progress timely with the other to ensure concurrence.
+    - Progress goals for each week were set and both members focused on completion of those tasks to ensure good time management
+    - Tasks were done on time. On the cases of hardware failure, we did fall back a couple steps but it helped us understand the process more and the time crunch wasn't as heavily felt as we had planned time for probavle failures too.
+    - Documentation was maintained throughout the process as tasks were getting done. As for the compilation of sketches, pictures and flowcharts - that happened at the end.]`
 
 ## 13.2 Task Breakdown
 
