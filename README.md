@@ -542,13 +542,13 @@ Include:
 
 | Area | Main Owner | Support Owner |
 |---|---|---|
-| Concept and gameplay | `[Khushi]` | `[Sukha]` |
-| Electronics | `[Khushi]` | `[Suksha]` |
-| Coding | `[Suksha]` | 
-| App | `[Khushi]` | 
+| Concept and gameplay | `[Khushi and Suksha]` |
+| Electronics | `[Khushi and Suksha]` |
+| Coding | `[Suksha]` | `[Khushi]` |
+| App | `[Khushi]` | `[Suksha]` |
 | Mechanical build | `[Khushi]` | 
-| Testing | `[Khushi]` | `[Suksha]` |
-| Documentation | `[Khushi]` | `[Suksha]` |
+| Testing | `[Suksha]]` | `[Khushi]` |
+| Documentation | `[Khushi and suksha]` | 
 
 ---
 
