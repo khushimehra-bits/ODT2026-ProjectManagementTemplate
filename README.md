@@ -316,7 +316,7 @@ If something moves, explain:
 - what could go wrong.
 
 **Response:**  
-`[The servo arm rotates when triggered, pulling the thread that removes the pin. The motion is about 90 degrees, controlled by the servo’s programmed angle, and occurs over a few seconds for smooth release. The pin moves linearly outward, allowing coins to fall. The speed is moderate to ensure control and avoid jamming. Possible issues include thread slipping, servo not generating enough torque, or the pin getting stuck due to friction or misalignment.]`
+The servo arm rotates when triggered, pulling the thread that removes the pin. The motion is about 90 degrees, controlled by the servo’s programmed angle, and occurs over a few seconds for smooth release. The pin moves linearly outward, allowing coins to fall. The speed is moderate to ensure control and avoid jamming. Possible issues include thread slipping, servo not generating enough torque, or the pin getting stuck due to friction or misalignment.
 
 ## 8.4 Simulation / CAD / Animation Before Making
 If your project includes mechanical motion, document the digital planning before fabrication.
@@ -349,7 +349,7 @@ What changed after the CAD, animation, or simulation stage?
 Describe the main electrical connections.
 
 **Response:**  
-`[In concurrence with the code - the wiring of 5 of the sercos will be on GPIOs 22, 4, 5, 18 and 19. The GNDs of these servos will be connected to PSU GND. The 6th servo which is the continous sweep servo will be connected to GPIO 21 and the GND will be connected to PSU GND. PSU GND will be connected to the ESP 32's GND so that both grounds are connected. All red cables of teh servos go to the 5V power unit and the yellow wires go to the GPIO pins while all the black wires of the servos go to GND. Then, the ultrasonic sensor will be connected via jumper cables. TRIG and ECHO will be connected to GPIO pins 32 (Pin.OUT) and 33 (Pin.IN) respectively. GND of the sensor will again go to PSU GND and VCC will go to 5V power. The NeoPixel will be connected to the GPIO pin 13 and the red and black wires will go to power and GND respectively. The placement of these can be toggled/shifted with jumper cables - but this is the essence of the wiring in our project.]`
+In concurrence with the code - the wiring of 5 of the sercos will be on GPIOs 22, 4, 5, 18 and 19. The GNDs of these servos will be connected to PSU GND. The 6th servo which is the continous sweep servo will be connected to GPIO 21 and the GND will be connected to PSU GND. PSU GND will be connected to the ESP 32's GND so that both grounds are connected. All red cables of teh servos go to the 5V power unit and the yellow wires go to the GPIO pins while all the black wires of the servos go to GND. Then, the ultrasonic sensor will be connected via jumper cables. TRIG and ECHO will be connected to GPIO pins 32 (Pin.OUT) and 33 (Pin.IN) respectively. GND of the sensor will again go to PSU GND and VCC will go to 5V power. The NeoPixel will be connected to the GPIO pin 13 and the red and black wires will go to power and GND respectively. The placement of these can be toggled/shifted with jumper cables - but this is the essence of the wiring in our project.
 
 ## 9.3 Circuit Diagram
 Insert a hand-drawn or software-made circuit diagram.
@@ -395,7 +395,7 @@ Include:
 - reset behavior.
 
 **Response:**  
-`[The startup starts with all the servos excpet the continous sweep servo in rest position. The continous sweep servo moves continously 125 degrees back and forth - this is to increase the difficulty of the game. The neopixel is also on during startup - it powers a red light going round and round the neopixel - it loops until the winner is decided. As shown in the flowchart, the initialization of the app also happens during runtime. Once the app is ready, the buttons correspond to the servos to be moved. The buttons are pressed to make the coins move in the path the player intends. The buttons cannot be pressed more than once - demanding higher awareness and planning from the player. Each time a button is pressed, the corresponding servo moves 90 degrees and pulls the pin attatched to it making the coins fall into a path. The Ultrasonic sensor senses coins as they fall into the path that determines if the player wins the game or not. As soon as the sensor senses coins falling into that path, it makes the neopixel change from red to flash green twice to signal the win and then it transforms into celbratory colors for a while and then resets the game. The reset means that the runtime is over and for the game to be played again, the code needs to be run again.]`
+The startup starts with all the servos excpet the continous sweep servo in rest position. The continous sweep servo moves continously 125 degrees back and forth - this is to increase the difficulty of the game. The neopixel is also on during startup - it powers a red light going round and round the neopixel - it loops until the winner is decided. As shown in the flowchart, the initialization of the app also happens during runtime. Once the app is ready, the buttons correspond to the servos to be moved. The buttons are pressed to make the coins move in the path the player intends. The buttons cannot be pressed more than once - demanding higher awareness and planning from the player. Each time a button is pressed, the corresponding servo moves 90 degrees and pulls the pin attatched to it making the coins fall into a path. The Ultrasonic sensor senses coins as they fall into the path that determines if the player wins the game or not. As soon as the sensor senses coins falling into that path, it makes the neopixel change from red to flash green twice to signal the win and then it transforms into celbratory colors for a while and then resets the game. The reset means that the runtime is over and for the game to be played again, the code needs to be run again.
 
 ## 10.3 Code Flowchart
 Insert a flowchart showing your code logic.
@@ -873,11 +873,11 @@ Include:
 - revisions.
 
 **Response:**  
-`[The base structure was cut from pine wood to provide a sturdy foundation, while details and layered elements were made using coloured and transparent acrylic cut with a laser cutter. 3D printed parts were used for components like servo mounts and pin holders to ensure proper alignment. The system was assembled by fixing the servos onto the wooden frame and attaching threads from the servo arms to the pins.
+The base structure was cut from pine wood to provide a sturdy foundation, while details and layered elements were made using coloured and transparent acrylic cut with a laser cutter. 3D printed parts were used for components like servo mounts and pin holders to ensure proper alignment. The system was assembled by fixing the servos onto the wooden frame and attaching threads from the servo arms to the pins.
 
 Fastening was done using adhesives and cable ties to keep all parts secure while still allowing small adjustments. Wiring involved connecting the servos, ultrasonic sensor, and NeoPixel strip to the ESP32 along with an external power supply, with careful routing to avoid interference with moving parts. Finishing included smoothing edges, aligning acrylic layers, and cleaning up the overall build.
 
-Several revisions were made to improve the pin mechanism—adjusting thread tension, servo angles, and alignment to reduce friction and prevent jamming during operation.]`
+Several revisions were made to improve the pin mechanism—adjusting thread tension, servo angles, and alignment to reduce friction and prevent jamming during operation.
 
 ## 17.2 Build Photos
 Add photos throughout the project.
