@@ -254,6 +254,7 @@ Add an early sketch of the full idea.
 
 **Insert image below:**  
 `[Upload image and link here]`
+<img width="900" height="1600" alt="Plan sketch " src="https://github.com/user-attachments/assets/aebdeb3e-d01b-4d04-8938-2f7d9e9001a4" />
 
 Example:
 ```md
