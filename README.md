@@ -276,10 +276,10 @@ Add a sketch with labels showing:
 
 | Dimension | Value |
 |---|---|
-| Length | `[Write here]` |
-| Width | `[Write here]` |
-| Height | `[Write here]` |
-| Estimated weight | `[Write here]` |
+| Length | `[50cm]` |
+| Width | `[35cm]` |
+| Height | `[2]` |
+| Estimated weight | `[2kg]` |
 
 ---
 
