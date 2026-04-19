@@ -214,11 +214,11 @@ Check all that apply.
 - [ ] Mechanical
 - [YES] Sensor-based
 - [YES] App-connected
-- [ ] Motorized
+- [YES] Motorized
 - [ ] Sound-based
-- [ ] Light-based
+- [YES] Light-based
 - [YES] Screen/UI-based
-- [ ] Fabricated structure
+- [YES] Fabricated structure
 - [YES] Game logic based
 - [YES] Installation / tabletop experience
 - [ ] Other: `[Write here]`
@@ -756,9 +756,10 @@ Reset: Win → reset game]
 | Item | Quantity | In Kit? | Need to Buy? | Estimated Cost | Material / Spec | Why This Choice? |
 |---|---:|---|---|---:|---|---|
 | `[ESP32]` | `1` | `Yes` | `No` | `0` | `[Spec]` | `[Reason]` |
-| `[Item]` | `[Qty]` | `[Yes/No]` | `[Yes/No]` | `[Cost]` | `[Spec]` | `[Reason]` |
-| `[Item]` | `[Qty]` | `[Yes/No]` | `[Yes/No]` | `[Cost]` | `[Spec]` | `[Reason]` |
-
+| `[Servo motor]` | `[6]` | `[Yes]` | `[Yes]` | `[125x5]` | `[Spec]` | `[Servo motors are easy to program and work with]` |
+| `[Neopixel]` | `[Qty]` | `[Yes]` | `[No]` | `[0]` | `[Spec]` | `[Reason]` |
+| `[Ultrasonic sensor]` | `[1]` | `[Yes]` | `[No]` | `[0]` | `[Spec]` | `[Reason]` |
+| `[Power supply]` | `[1]` | `[Yes/No]` | `[Yes/No]` | `[Cost]` | `[Spec]` | `[Reason]` |
 ## 12.2 Material Justification
 Explain why you selected your main materials and components.
 
@@ -769,7 +770,7 @@ Examples:
 - Why bearing instead of a plain shaft hole?
 
 **Response:**  
-`[Pine wood instead of MDF because it would not hold the continuous movement happening through the game and also the MDF deteriorates with time. Arcylic is transparent.]`
+`[Pine wood instead of MDF because it would not hold the continuous movement happening through the game and also the MDF deteriorates with time. Arcylic is transparent and light so it does not put pressure on the servos.]`
 
 ## 12.3 Items to Purchase Separately
 
@@ -852,7 +853,7 @@ Expected outcomes:
 - [yes] Idea finalized
 - [yes] Core interaction decided
 - [yes] Sketches made
-- [ ] BOM completed
+- [yes] BOM completed
 - [yes] Purchase needs identified
 - [yes] Key uncertainty identified
 - [yes] Basic feasibility tested
@@ -867,11 +868,11 @@ Expected outcomes:
 
 ### Week 3 — Integrate
 Expected outcomes:
-- [ ] Physical body built
-- [ ] Electronics integrated
-- [ ] Code connected to hardware
-- [ ] App connected if required
-- [ ] First playable version exists
+- [yes] Physical body built
+- [yes] Electronics integrated
+- [yes] Code connected to hardware
+- [yes] App connected if required
+- [yes] First playable version exists
 
 ### Week 4 — Refine and Finish
 Expected outcomes:
