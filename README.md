@@ -997,9 +997,9 @@ Example:
 
 | Version | Date | What Changed | Why |
 |---|---|---|---|
-| `v1` | `[Date]` | `[Describe]` | `[Reason]` |
-| `v2` | `[Date]` | `[Describe]` | `[Reason]` |
-| `v3` | `[Date]` | `[Describe]` | `[Reason]` |
+| `v1` | `[10th april]` | `[Servos moving but with no calibration.Is able to pull the weight of the pin ]` | `[Weight testing in order to see if correct material was being used. ]` |
+| `v2` | `[15th april]` | `[Physical model done with holes drilled for servos to sit in. Load sensor had to replaced with a ultrasonic sensor]` | `[Load sensor wasnt calibrating.The servo position was finalised ]` |
+| `v3` | `[19th april]` | `[Fully assembled except for the top piece ]` | `[No changes can be made after top piece is attached.]` |
 
 ---
 
@@ -1020,7 +1020,7 @@ Describe the final version of your project.
 ## 18.3 What Still Needs Improvement
 - `[To make the game reset automatically ]`
 - `[Make the pins move in a smooth motion]`
-- `[Point 3]`
+  
 
 ## 18.4 What Changed From the Original Plan
 How did the project change from the initial idea?
