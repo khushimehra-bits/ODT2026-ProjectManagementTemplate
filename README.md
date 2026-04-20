@@ -322,16 +322,15 @@ The servo arm rotates when triggered, pulling the thread that removes the pin. T
 ## 8.4 Simulation / CAD / Animation Before Making
 If your project includes mechanical motion, document the digital planning before fabrication.
 
-| Tool Used | File / Link | What Was Tested |
+| Tool Used | File / Lnk | What Was Tested |
 |---|---|---|
-| `[Fusion 360 / Tinkercad / other]` | `[Link or screenshot]` | `[What did you validate?]` |
-| `[Tool]` | `[Link or screenshot]` | `[What did you validate?]` |
+| `[-]` |
 
 ## 8.5 Changes After Digital Testing
 What changed after the CAD, animation, or simulation stage?
 
 **Response:**  
-`[Added a system with the servos to pull a thread wrapped around a cylinder to create tension and pull it straight out]`
+`[-]`
 
 ---
 
@@ -357,6 +356,8 @@ Insert a hand-drawn or software-made circuit diagram.
 
 **Insert image below:**  
 `[Upload image and link here]`
+<img width="900" height="1600" alt="Circuit diagram " src="https://github.com/user-attachments/assets/b972c3f6-b574-4b47-9437-a62f9208e79b" />
+
 
 ## 9.4 Power Plan
 
@@ -697,24 +698,24 @@ Expected outcomes:
 ## 14.2 Weekly Update Log
 
 | Week | Planned Goal | What Actually Happened | What Changed | Next Steps |
-|---|---|---|---|---|
-| Week 1 | `[Write here]` | `[Write here]` | `[Write here]` | `[Write here]` |
-| Week 2 | `[Write here]` | `[Write here]` | `[Write here]` | `[Write here]` |
-| Week 3 | `[Write here]` | `[Write here]` | `[Write here]` | `[Write here]` |
-| Week 4 | `[Write here]` | `[Write here]` | `[Write here]` | `[Write here]` |
+
+| Week 1 | Finalize idea, sketch mechanism, identify components | Idea evolved from a simple servo mechanism to a game-based system with multiple servos and sensors | Added game logic (win condition + LED feedback) instead of just a mechanical output      | Start testing individual components (servo, ultrasonic, LEDs) |
+| Week 2 | Test electronics and basic mechanism  | Faced issues with servo movement, power supply, and calibration   | Adjusted servo angles, changed duty values, and introduced external power considerations | Stabilize individual components and begin combining them      |
+| Week 3 | Integrate system (code + hardware + structure)       | Integration was more complex than expected—WiFi/app control and timing issues came up              | Simplified logic, improved code structure, removed blocking delays  | Get a fully working playable prototype |
+| Week 4 | Refine interaction and finalize build  | System became stable, but small bugs and mechanical misalignments remained  | Fine-tuned timing, improved reliability, adjusted physical alignment   | Final testing, polish interaction, complete documentation     |
+ |
 
 ---
 
 # 15. Risks and Unknowns
 
-## 15.1 Risk Register
+## | Risk | Type | Likelihood | Impact | Mitigation Plan                                                                                     | Owner |
 
-| Risk | Type | Likelihood | Impact | Mitigation Plan | Owner |
-|---|---|---|---|---|---|
-| `[Example: Bluetooth disconnects]` | `Technical` | `Medium` | `High` | `[Fallback interaction / simplify connection flow]` | `[Name]` |
-| `[Example: Structure breaks during play]` | `Mechanical` | `Medium` | `High` | `[Reinforce joints / change material]` | `[Name]` |
-| `[Risk]` | `[Technical / Material / Time / Gameplay]` | `[Low/Medium/High]` | `[Low/Medium/High]` | `[Plan]` | `[Name]` |
-| `[Risk]` | `[Type]` | `[Low/Medium/High]` | `[Low/Medium/High]` | `[Plan]` | `[Name]` |
+| WiFi/app fails to connect to ESP32 | Technical  | Medium     | High   | Test with direct browser requests, simplify request format, ensure stable hotspot connection  | Team  |
+| Structure misalignment causes jamming  | Mechanical | Medium | High   | Adjust alignment, increase tolerances, test with mockups before final assembly | Team|
+| Servo does not move correctly due to mechanical error | Mechanical | High  | High | Recalibrate angles, adjust linkage/thread tension, reposition servo for better torque and alignment | Team  |
+| Power supply insufficient for multiple servos | Technical  | Medium     | High   | Use external 5V supply and common ground, test load before full integration | Team|
+| Timing issues causing delayed or missed actions | Technical  | Medium | Medium | Reduce blocking delays, optimize code, test timing under real conditions | Team  |
 
 ## 15.2 Biggest Unknown Right Now
 What is the single biggest uncertainty in your project at this stage?
