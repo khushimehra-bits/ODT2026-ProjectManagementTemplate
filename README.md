@@ -401,6 +401,7 @@ The startup starts with all the servos excpet the continous sweep servo in rest 
 
 ## 10.3 Code Flowchart
 Insert a flowchart showing your code logic.
+<img width="739" height="1600" alt="Flow chart code" src="https://github.com/user-attachments/assets/49d11fc1-b6de-4390-b2d4-1773c1a37a8d" />
 
 Suggested sequence:
 - start,
