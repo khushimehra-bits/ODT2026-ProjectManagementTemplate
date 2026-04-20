@@ -58,8 +58,8 @@ Suksha and Khushi
 
 | Name | Primary Role | Secondary Role | Strengths Brought to the Project |
 |---|---|---|---|
-| `[Khushi]` | `[Electronics / App / Fabrication / Mechanics]` | `[coding]` | `[Physical build of the setup and mechanics]` |
-| `[Suksha]` | `[Electronics / Coding]` | `[ app and setup]` | `[Coding prowess and troubleshooting]` |
+| `[Khushi]` | `[[Electronics / App / Fabrication / Mechanics]` | `[making the physical setup and app]` | `[Physical build of the setup and mechanics]` |
+| `[Suksha]` | `[Electronics / Coding/ Debugging]` | `[Coding and electronics]` | `[Coding prowess and troubleshooting]` |
 
 ## 1.3 Project Title
 `[Pull pin game]`
@@ -75,9 +75,7 @@ In 1–2 paragraphs, explain:
 - what technologies are involved.
 
 **Response:**  
-`[A game with several pins that need to pulled out using a web interface to make a coin/ several coins together go through and obstacle course down the correct shoot into the bucket which holds an ultra sonic sensor.
-It creates a fun and adrenaline filled game of chance.
-It is based partially on chance and partially on reflexes, the time sensitivity, and planning. ]`
+`[A game with several pins that need to pulled out using a web interface to make a coin/ several coins together go through and obstacle course down the correct shoot into the bucket which holds an ultra sonic sensor. It creates a fun and adrenaline filled game of chance. It is based partially on chance and partially on reflexes, the time sensitivity, and planning.]`
 
 ---
 
@@ -122,7 +120,7 @@ List what inspired the project.
 
 | Source Type | Title / Link | What Inspired You |
 |---|---|---|
-| `[Toy /App/ Website]` | `[[(https://poki.com/en/g/how-to-loot-pin-pull)]` | `[What did you learn or borrow?]` |
+| `[Toy /App/ Website]` | `[[(https://poki.com/en/g/how-to-loot-pin-pull)]` | `[We took from this concept and made the hardware to match the game]` |
 | `[Toy / Game]' |  '['Coin pusher arcade machines].	'[The idea of using coins, physical reward systems, and repeatable play for engagement.]'|
 |  '[Object]' | '[Servo-based mechanisms]' | '[Using controlled mechanical movement to create precise, repeatable interactions.]` |
 
@@ -146,7 +144,7 @@ Examples:
 - move object → sensor detects → sound/light response → player reacts
 
 **Response:**  
-`[connect → select pin (app) → trigger servo (pull pin) → coin drops → load sensor detects → light as experience (NeoPixel) → observe result → repeat]`
+`[Connect → Select pin (app) → Trigger servo (pull pin) → Coin drops → Ultrasonic sensor detects → light as experience (NeoPixel) → Observe result → Repeat]`
 
 ## 4.2 Intended Player / Audience
 
@@ -162,13 +160,13 @@ Examples:
 ## 4.3 Player Journey
 Describe exactly how a player will use the project.
 
-1. **Approach:** `[How does the player first encounter it?]`[The player encounters a physical setup with multiple pins and a coin collection bucket, accompanied by a mobile interface.]
-2. **Start:** `[How do they begin?]`[The player takes the phone contected to the system via Bluetooth using the app.]
-3. **First Action:** `[What do they do first?]`[They press a button on the app to select and trigger a specific pin.]
-4. **Main Interaction:** `[What keeps happening during use?]`[The player continues selecting different pins through the app, experimenting with timing and choice to release coins into the bucket.]
-5. **System Response:** `[How does the project respond?]`[Each input triggers a servo that pulls a pin, releasing a coin. The load sensor detects the coin drop, and NeoPixel lights respond with dynamic color feedback.]
-6. **Win / Lose / End Condition:** `[How does one round end?]`[A round ends after a fixed number of attempts or time. Success can be defined by the number of coins collected or achieving a target weight.]
-7. **Reset:** `[How does the next round begin?]`[Pins are manually reset to their original positions, the bucket is emptied and weight reset, and the system is ready for the next player.]
+1. **Approach:** [The player encounters a physical setup with multiple pins and a coin collection bucket, accompanied by a mobile interface.]
+2. **Start:** [The player takes the phone contected to the system via Bluetooth using the app.]
+3. **First Action:** [They press a button on the app to select and trigger a specific pin.]
+4. **Main Interaction:** [The player continues selecting different pins through the app, experimenting with timing and choice to release coins into the bucket.]
+5. **System Response:** [Each input triggers a servo that pulls a pin, releasing a coin. The load sensor detects the coin drop, and NeoPixel lights respond with dynamic color feedback.]
+6. **Win / Lose / End Condition:** [A round ends after a fixed number of attempts or time. Success can be defined by the number of coins collected or achieving a target weight.]
+7. **Reset:** [Pins are manually reset to their original positions, the bucket is emptied and weight reset, and the system is ready for the next player.]
 
 ## 4.4 Rules of Play
 If your project is a game, list the rules clearly.
@@ -568,11 +566,12 @@ Reset: Win → reset game]
 
 | Item | Quantity | In Kit? | Need to Buy? | Estimated Cost | Material / Spec | Why This Choice? |
 |---|---:|---|---|---:|---|---|
-| `[ESP32]` | `1` | `Yes` | `No` | `0` | `[Spec]` | `[Reason]` |
+| `[ESP32]` | `1` | `Yes` | `No` | `0` | `[Spec]` | `[It powers the arduino set]` |
 | `[Servo motor]` | `[6]` | `[Yes]` | `[Yes]` | `[125x5]` | `[Spec]` | `[Servo motors are easy to program and work with]` |
-| `[Neopixel]` | `[Qty]` | `[Yes]` | `[No]` | `[0]` | `[Spec]` | `[Reason]` |
-| `[Ultrasonic sensor]` | `[1]` | `[Yes]` | `[No]` | `[0]` | `[Spec]` | `[Reason]` |
-| `[Power supply]` | `[1]` | `[Yes/No]` | `[Yes/No]` | `[Cost]` | `[Spec]` | `[Reason]` |
+| `[Neopixel]` | `[Qty]` | `[Yes]` | `[No]` | `[0]` | `[Spec]` | `[To be used as player feedback by using light for both game startup and win]` |
+| `[Ultrasonic sensor]` | `[1]` | `[Yes]` | `[No]` | `[0]` | `[Spec]` | `[To sense the coins as they fall into the win path]` |
+| `[Power supply]` | `[1]` | `[Yes/No]` | `[Yes/No]` | `[Cost]` | `[Spec]` | `[Gives additional voltage to the circuit - 5V]` |
+
 ## 12.2 Material Justification
 Explain why you selected your main materials and components.
 
@@ -589,25 +588,25 @@ Examples:
 
 | Item | Why Needed | Purchase Link | Latest Safe Date to Procure | Status |
 |---|---|---|---|---|
-| `[Servo]` | `[]` | `[Link]` | `[Date]` | `[Pending / Ordered / Received]` |
-| `[Item]` | `[Reason]` | `[Link]` | `[Date]` | `[Pending / Ordered / Received]` |
+| `[Servo motors]` | `[A few of our servos were faulty so we needed to get some extra for the project]` | `[Amazon delivery]` | `[12th April]` | `[Ordered on the 10th, arrivedd on the 19th - but since it was physically also procured, we had 4 extra.]` |
+| `[Power supply unit]` | `[The power supply unit had stopped working so it had to be replaced]` | `[Physically procured]` | `[17th April (It went out on the 17th)]` | `[Recieved on the 18th of April, tested and assembled.]` |
 
 ## 12.4 Budget Summary
 
 | Budget Item | Estimated Cost |
 |---|---:|
-| Electronics | `[Cost]` |
-| Mechanical parts | `[Cost]` |
-| Fabrication materials | `[Cost]` |
-| Purchased extras | `[Cost]` |
-| Contingency | `[Cost]` |
-| **Total** | `[Cost]` |
+| Electronics | `[0]` |
+| Mechanical parts | `[0]` |
+| Fabrication materials | `[0]` |
+| Purchased extras | `[Servos + Power supply = 770+500 = 1270 total]` |
+| Contingency | `[already factored]` |
+| **Total** | `[1270]` |
 
 ## 12.5 Budget Reflection
 If your cost is too high, what can be simplified, removed, substituted, or shared?
 
 **Response:**  
-`[Write here]`
+`[Although we had expected to do this without having to buy the electronics, we had left room for last minute purchases or fixes - and this came under that. As for the servos, it costed much less than expected - its just the delivery charges that added up. Overall, the cost was shared.]`
 
 ---
 
@@ -635,13 +634,13 @@ Include:
 | Task ID | Task | Owner | Estimated Hours | Deadline | Dependency | Status |
 |---|---|---|---:|---|---|---|
 | T1 | `[Finalize concept]` | `[Khushi and suksha]` | `2` | `[30th march]` | `None` | `Done` |
-| T2 | `[Complete BOM]` | `[Khushi and Suksha]` | `1` | `[6th april]` | `T1` | `Done` |
-| T3 | `[Test electronics]` | `[Khushi]` | `2` | `[Date]` | `T1` | `Done` |
-| T4 | `[Build structure]` | `[Khushi]` | `4` | `[Date]` | `T1` | `Done` |
-| T5 | `[Write control code]` | `[Suksha]` | `4` | `[Date]` | `T3` | `Done` |
-| T6 | `[Integrate system]` | `[Khushi and Suksha]` | `4` | `[Date]` | `T4, T5` | `Done` |
-| T7 | `[Playtest]` | `[Khushi and Suksha]` | `2` | `[Date]` | `T6` | `Done` |
-| T8 | `[Refine and document]` | `[Khushi and suksha]` | `3` | `[20th april]` | `T7` | `Done` |
+| T2 | `[Complete BOM]` | `[Khushi and Suksha]` | `2` | `[6th april]` | `T1` | `Done` |
+| T3 | `[Test electronics]` | `[Khushi and Suksha]` | `2` | `[Continous]` | `T1` | `Done` |
+| T4 | `[Build structure]` | `[Khushi]` | `12` | `[16th April]` | `T1` | `Done` |
+| T5 | `[Write control code]` | `[Suksha]` | `16` | `[v1 was done on 6th April and v5 was done 17th April]` | `T3` | `Done` |
+| T6 | `[Integrate system]` | `[Khushi and Suksha]` | `12` | `[15th April]` | `T4, T5` | `Done` |
+| T7 | `[Playtest]` | `[Khushi and Suksha]` | `5` | `[Date]` | `18th April` | `Done` |
+| T8 | `[Refine and document]` | `[Khushi and suksha]` | `4` | `[20th april]` | `T7` | `Done` |
 
 ## 13.3 Responsibility Split
 
@@ -689,11 +688,11 @@ Expected outcomes:
 
 ### Week 4 — Refine and Finish
 Expected outcomes:
-- [ ] Technical bugs reduced
-- [ ] Playtesting completed
-- [ ] Improvements made
-- [ ] Documentation completed
-- [ ] Final build ready
+- [yes] Technical bugs reduced
+- [yes] Playtesting completed
+- [yes] Improvements made
+- [yes] Documentation completed
+- [yes] Final build ready
 
 ## 14.2 Weekly Update Log
 
