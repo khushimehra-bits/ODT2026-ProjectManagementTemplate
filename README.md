@@ -730,20 +730,20 @@ What is the single biggest uncertainty in your project at this stage?
 
 | What Needs Testing | How You Will Test It | Success Condition |
 |---|---|---|
-| `[WiFi connection (ESP32 + app)]` | `[Connect phone to ESP32 hotspot and send commands via browser/app]` | `[Servos respond immediately without disconnection]` |
-| `[Mechanism movement]` | `[Trigger each servo multiple times]` | `[Pins move smoothly and release coins without jamming]` |
-| `[Sensor behavior]` | `[Method]` | `[What counts as success?]` |
-| `[App communication]` | `[Method]` | `[What counts as success?]` |
+| `[Bluetooth connection]` | `[Connect wiring system to the ESP32 and run the code. Connect to WiFi and open the App. The goal is to test the working of the buttons]` | `[If the App opens the correct interface and the buttons make the servos move as intended. DONE.]` |
+| `[Mechanism movement]` | `[Test codes were made for each component, so running them would make us test the servo's function]` | `[If 5 servos move 90 degree and the 6th moves 125 degrees]` |
+| `[Sensor behavior]` | `[The sensor is connectd to the neopixel for feedback, so we run the test code for the ultrasonic and neopixel. We drop a coin in the vicinity of the sensor and make it read the signal]` | `[If the signal is picked up, the neopixel light will change from red to green and then mulitple colours as celebration]` |
+| `[App communication]` | `[Coonection to WiFi and button interface working]` | `[If the buttons make the servos move. Same as bluetooth test]` |
 
 ## 16.2 Playtesting Plan
 
 | Question | How You Will Check |
 |---|---|
-| Do players understand what to do? | `[Method]` |
-| Is the interaction satisfying? | `[Method]` |
-| Do players want another turn? | `[Method]` |
-| Is the challenge balanced? | `[Method]` |
-| Is the response clear and immediate? | `[Method]` |
+| Do players understand what to do? | `[Make them look at the game, and the app and see if they recognize it. If not, and some signifiers to show what is to be done.]` |
+| Is the interaction satisfying? | `[See if the players find the gameplay engaging]` |
+| Do players want another turn? | `[Make a logic not directly understandable until played so that the player is curious as to how to win.]` |
+| Is the challenge balanced? | `[Yes, players feel the game logic makes the challenge balanced.]` |
+| Is the response clear and immediate? | `[The response of the neopixel makes the feedback loop complete and immediate.]` |
 
 ## 16.3 Testing and Debugging Log
 
@@ -756,8 +756,8 @@ What is the single biggest uncertainty in your project at this stage?
 
 | Tester | What They Did | What Confused Them | What They Enjoyed | What You Will Change |
 |---|---|---|---|---|
-| `[Peer / friend / classmate]` | `[Observation]` | `[Observation]` | `[Observation]` | `[Action]` |
-| `[Peer / friend / classmate]` | `[Observation]` | `[Observation]` | `[Observation]` | `[Action]` |
+| `[Teammate]` | `[Tested out the workings of the servos and the response mechanism]` | `[Why the servos weren't moving as intended]` | `[The overall flow of the game and the celevrations. They also liked how the game play was]` | `[The servo angles to match the max tension point to pull the pin out]` |
+| `[Teammate and peer]` | `[They played the game but noticed the neopixel going off before time]` | `[The neopixel was lighting up without even getting a win signal and resetting the game]` | `[They liked the animation of the LEDs but they needed to come onyl after the game was won - not after some amount of time]` | `[Change in code version]` |
 
 ---
 
@@ -845,7 +845,7 @@ What slowed you down?
 How well did you manage time, tasks, and responsibilities?
 
 **Response:**  
-`[The team worked well in dividing tasks between coding, electronics, and mechanical design, which helped progress happen in parallel. We communicated ideas clearly and adapted quickly when something didn’t work. However, integration slowed us down, especially when combining the app, hardware, and mechanics. Time management was generally effective, but more structured testing earlier could have reduced last-minute fixes]`
+`[The team worked well in dividing tasks between coding, electronics, and mechanical design, which helped progress happen in parallel. We communicated ideas clearly and adapted quickly when something didn’t work. However, integration slowed us down, especially when combining the app, hardware, and mechanics. Time management was generally effective, but more structured testing and hardware planning early on could have reduced last-minute fixes. ]`
 
 ## 19.2 Technical Reflection
 What did you learn about:
@@ -856,7 +856,8 @@ What did you learn about:
 - integration?
 
 **Response:**  
-`[In electronics, we learned how to power and manage multiple components like servos, NeoPixels, and sensors using an ESP32, and the importance of a stable external power supply and common grounding. In coding, we understood how to handle real-time communication between the app and the ESP32.Mechanically, we explored how rotational motion from a servo can reliably translate into linear pin movement using threads, and how small alignment issues can cause failure. In fabrication, we learned that material choice and precision (especially with laser-cut acrylic and wood) directly affect performance and durability. Integration taught us that combining all systems is the most challenging part, requiring constant testing and adjustments to ensure everything works together smoothly in real time.]`
+`[In electronics, we learned how to power and manage multiple components like servos, NeoPixels, and sensors using an ESP32, and the importance of a stable external power supply and common grounding. In coding, we understood how to handle real-time communication between the app and the ESP32. Mechanically, we explored how rotational motion from a servo can reliably translate into linear pin movement using threads, and how small alignment issues can cause failure. In fabrication, we learned that material choice and precision (especially with laser-cut acrylic and wood) directly affect performance and durability. Integration taught us that combining all systems is the most challenging part, requiring constant testing and adjustments to ensure everything works together smoothly in real time.
+In hindsight, looking at the problems we faced on the way, most of them could have been avoided if we spent more time planning ou the structure and where the electronics would go, so it would work in its most efficient way. But overall, it worked smoothly in the end.]`
 
 ## 19.3 Design Reflection
 What did you learn about:
@@ -868,7 +869,7 @@ What did you learn about:
 - iteration?
 
 **Response:**  
-`[We learned that designing for play requires immediate feedback and simple interactions. Delight comes from combining physical movement, lights, and unpredictability. Clarity is important so users understand what each action does without explanation. Physical interaction made the experience more engaging compared to purely digital systems. Iteration was key, as small changes in timing, motion, or layout significantly improved usability and overall experience.]`
+`[We learned that designing for play requires immediate feedback, precise planning and simple interactions. Delight comes from combining physical movement, lights, and unpredictability. Clarity is important so users understand what each action does without explanation. Physical interaction made the experience more engaging compared to purely digital systems. Iteration was key, as small changes in timing, motion, or layout significantly improved usability and overall experience.]`
 
 ## 19.4 If You Had One More Week
 What would you improve next?
@@ -882,23 +883,23 @@ What would you improve next?
 
 Before submission, confirm that:
 - [YES] Team details are complete
-- [ ] Project description is complete
-- [ ] Inspiration sources are included
-- [ ] Player journey is written
-- [ ] Sketches are added
-- [ ] BOM is complete
-- [ ] Purchase list is complete
-- [ ] Budget summary is complete
-- [ ] Mechanical planning is documented if applicable
-- [ ] App planning is documented if applicable
-- [ ] Code flowchart is added
-- [ ] Task breakdown is complete
+- [YES] Project description is complete
+- [YES] Inspiration sources are included
+- [YES] Player journey is written
+- [YES] Sketches are added
+- [YES] BOM is complete
+- [YES] Purchase list is complete
+- [YES] Budget summary is complete
+- [YES] Mechanical planning is documented if applicable
+- [YES] App planning is documented if applicable
+- [YES] Code flowchart is added
+- [YES] Task breakdown is complete
 - [ ] Weekly logs are updated
 - [ ] Risk register is complete
 - [ ] Testing log is updated
-- [ ] Playtesting notes are included
-- [ ] Build photos are included
-- [ ] Final reflection is written
+- [YES] Playtesting notes are included
+- [YES] Build photos are included
+- [YES] Final reflection is written
 
 ---
 
