@@ -153,7 +153,7 @@ Examples:
 | Who is this for? | `[Students, casual players, and exhibition visitors interested in interactive physical-digital games]` |
 | Age range | `[9+]` |
 | Solo or multiplayer | `[Primarily solo, but can be played turn-based in groups]` |
-| Expected duration of one round | `[2-5 minutes]` |
+| Expected duration of one round | `[2-3 minutes]` |
 | What should the player feel? | `[Curiosity, anticipation, and satisfaction through cause-and-effect interaction, along with playful engagement]` |
 | Is explanation required before use? | `[Minimal — intuitive interaction, but basic instructions improve experience]` |
 
@@ -164,7 +164,7 @@ Describe exactly how a player will use the project.
 2. **Start:** [The player takes the phone contected to the system via Bluetooth using the app.]
 3. **First Action:** [They press a button on the app to select and trigger a specific pin.]
 4. **Main Interaction:** [The player continues selecting different pins through the app, experimenting with timing and choice to release coins into the bucket.]
-5. **System Response:** [Each input triggers a servo that pulls a pin, releasing a coin. The load sensor detects the coin drop, and NeoPixel lights respond with dynamic color feedback.]
+5. **System Response:** [Each input triggers a servo that pulls a pin, releasing a coin. The ultrasonic sensor detects the coin drop, and NeoPixel lights respond with dynamic color feedback.]
 6. **Win / Lose / End Condition:** [A round ends after a fixed number of attempts or time. Success can be defined by the number of coins collected or achieving a target weight.]
 7. **Reset:** [Pins are manually reset to their original positions, the bucket is emptied and weight reset, and the system is ready for the next player.]
 
@@ -306,7 +306,7 @@ Check all that apply.
 Describe the mechanism and what it is meant to do.
 
 **Response:**  
-`[The servo pulls a thread that is wrapped around a fixed axle and wheel that in turn pulls the pin to let the coins fall]`
+`[The servo pulls an axel it is attatched to, which is inturn pulling the pin (the lever) that makes the coins fall through the slots made.]`
 
 ## 8.3 Motion Planning
 If something moves, explain:
@@ -317,7 +317,7 @@ If something moves, explain:
 - what could go wrong.
 
 **Response:**  
-The servo arm rotates when triggered, pulling the thread that removes the pin. The motion is about 90 degrees, controlled by the servo’s programmed angle, and occurs over a few seconds for smooth release. The pin moves linearly outward, allowing coins to fall. The speed is moderate to ensure control and avoid jamming. Possible issues include thread slipping, servo not generating enough torque, or the pin getting stuck due to friction or misalignment.
+The servo arm rotates when triggered, the servo pulls the pin and the coin drops through the slot (if in the rigth position). The motion is about 45 to 55 degrees, controlled by the servo’s programmed angle, and occurs over a few seconds for smooth release. The pin moves linearly outward, allowing coins to fall. The speed is moderate to ensure control and avoid jamming. Possible issues include thread slipping, servo not generating enough torque, or the pin getting stuck due to friction or misalignment.
 
 ## 8.4 Simulation / CAD / Animation Before Making
 If your project includes mechanical motion, document the digital planning before fabrication.
@@ -341,7 +341,7 @@ What changed after the CAD, animation, or simulation stage?
 | Component | Quantity | Purpose |
 |---|---:|---|
 | `[ESP32]` | `1` | `[Main controller]` |
-| `[Servo]` | `[6]` | `[control the obstacles of the game]` |
+| `[Servo]` | `[4]` | `[control the obstacles of the game and the motion of the coins]` |
 | `[Ultra sonic sensor]` | `[1]` | `[senses the coins falling in the winning slot and sends a signal to the neopixel]` |
 | `[Neopixel]` | `[1]` | `[Remains red until it recieves the signal from the ultra sonic and then turns green and after that a gradient in celebration ]` |
 
@@ -349,7 +349,7 @@ What changed after the CAD, animation, or simulation stage?
 Describe the main electrical connections.
 
 **Response:**  
-In concurrence with the code - the wiring of 5 of the sercos will be on GPIOs 22, 4, 5, 18 and 19. The GNDs of these servos will be connected to PSU GND. The 6th servo which is the continous sweep servo will be connected to GPIO 21 and the GND will be connected to PSU GND. PSU GND will be connected to the ESP 32's GND so that both grounds are connected. All red cables of teh servos go to the 5V power unit and the yellow wires go to the GPIO pins while all the black wires of the servos go to GND. Then, the ultrasonic sensor will be connected via jumper cables. TRIG and ECHO will be connected to GPIO pins 32 (Pin.OUT) and 33 (Pin.IN) respectively. GND of the sensor will again go to PSU GND and VCC will go to 5V power. The NeoPixel will be connected to the GPIO pin 13 and the red and black wires will go to power and GND respectively. The placement of these can be toggled/shifted with jumper cables - but this is the essence of the wiring in our project.
+In concurrence with the code - the wiring of 4 of the sercos will be on GPIOs 22, 4, 5, and 19. The GNDs of these servos will be connected to PSU GND. The 6th servo which is the continous sweep servo will be connected to GPIO 22 and the GND will be connected to PSU GND. PSU GND will be connected to the ESP 32's GND so that both grounds are connected. All red cables of the servos go to the 5V power unit and the yellow wires go to the GPIO pins while all the black wires of the servos go to GND. Then, the ultrasonic sensor will be connected via jumper cables. TRIG and ECHO will be connected to GPIO pins 32 (Pin.OUT) and 33 (Pin.IN) respectively. GND of the sensor will again go to PSU GND and VCC will go to 5V power. The NeoPixel will be connected to the GPIO pin 13 and the red and black wires will go to power and GND respectively. The placement of these can be toggled/shifted with jumper cables - but this is the essence of the wiring in our project.
 
 ## 9.3 Circuit Diagram
 Insert a hand-drawn or software-made circuit diagram.
@@ -365,7 +365,7 @@ Insert a hand-drawn or software-made circuit diagram.
 |---|---|
 | Power source | `[Power Supply Unit - connected to the adapter]` |
 | Voltage required | `[5V]` |
-| Current concerns | `[There was concern that the current passing through the circuit would not be enough to power 6 servos, the neopixel and the sensor, but that concern was resolved through the trials]` |
+| Current concerns | `[There was concern that the current passing through the circuit would not be enough to power 4 servos, the neopixel and the sensor, but that concern was resolved through the trials]` |
 | Safety concerns | `[We were concerned that the PSU migth over heat and burn - which did happen once - but then we found out how to manage the current in the circuit well enough that all the components are powered and it is safe to work around.]` |
 
 ---
@@ -379,8 +379,8 @@ Insert a hand-drawn or software-made circuit diagram.
 | Micropython code | Used to create a code to connect ESP32, PSU, servos, neopixel, ultrasonic sensor and record its functions |
 | MIT App inventor | Used to make interface for pressing the buttons required to move the pull pins |
 | Laser cutting software tool | Used to make the hardware intricate parts by laser cutting acrylic sheets |
-| Servo motors (5 of the 6) | Servos have a function of moving an angle of 90 degrees to let the coins pass that path |
-| Continous sweep servo (6th servo) | This servo has the function of moving an angle of 125 degrees continously and the player must time the pull of the 4th or the 5th servo accurately to win the game |
+| Servo motors (3 of the 4) | Servos have a function of moving an angle of 45 to 55 degrees to let the coins pass that path |
+| Continous sweep servo (4th servo) | This servo has the function of moving an angle of 110 to 125 degrees continously and the player must time the pull accurately to win the game |
 | Ultrasonic sensor | The sensor is placed on the platfrom that decides the winner - the second coins fall on that platform the colour changes to green and then multiple celebratory colours |
 | Neopixel | The neopixel rotates a red light on the circular strip until the player wins and then it resets |
 
@@ -397,7 +397,7 @@ Include:
 - reset behavior.
 
 **Response:**  
-The startup starts with all the servos excpet the continous sweep servo in rest position. The continous sweep servo moves continously 125 degrees back and forth - this is to increase the difficulty of the game. The neopixel is also on during startup - it powers a red light going round and round the neopixel - it loops until the winner is decided. As shown in the flowchart, the initialization of the app also happens during runtime. Once the app is ready, the buttons correspond to the servos to be moved. The buttons are pressed to make the coins move in the path the player intends. The buttons cannot be pressed more than once - demanding higher awareness and planning from the player. Each time a button is pressed, the corresponding servo moves 90 degrees and pulls the pin attatched to it making the coins fall into a path. The Ultrasonic sensor senses coins as they fall into the path that determines if the player wins the game or not. As soon as the sensor senses coins falling into that path, it makes the neopixel change from red to flash green twice to signal the win and then it transforms into celbratory colors for a while and then resets the game. The reset means that the runtime is over and for the game to be played again, the code needs to be run again.
+The startup starts with all the servos excpet the continous sweep servo in rest position. The continous sweep servo moves continously 110 to 125 degrees back and forth - this is to increase the difficulty of the game. The neopixel is also on during startup - it powers a red light going round and round the neopixel - it loops until the winner is decided. As shown in the flowchart, the initialization of the app also happens during runtime. Once the app is ready, the buttons correspond to the servos to be moved. The buttons are pressed to make the coins move in the path the player intends. The buttons cannot be pressed more than once - demanding higher awareness and planning from the player. Each time a button is pressed, the corresponding servo moves 90 degrees and pulls the pin attatched to it making the coins fall into a path. The Ultrasonic sensor senses coins as they fall into the path that determines if the player wins the game or not. As soon as the sensor senses coins falling into that path, it makes the neopixel change from red to flash green twice to signal the win and then it transforms into celbratory colors for a while and then resets the game. The reset means that the runtime is over and for the game to be played again, the code needs to be run again.
 
 ## 10.3 Code Flowchart
 Insert a flowchart showing your code logic.
@@ -413,94 +413,6 @@ Suggested sequence:
 - repeat or reset,
 - error handling.
 
-This is the algorithm sequence of the code that follows the flowchart:
-
-START
-Initialization
-
-1.	Initialize App communication using App Inventor link. 
-2.	Define servo duty cycle limits (MIN = 26, MAX = 128). 
-3.	Initialize: 
-o	5 positional servos 
-o	1 continuous servo 
-4.	Set all servos to 0° (rest position). 
-5.	Stop continuous servo. 
-6.	Initialize ultrasonic sensor (TRIG + ECHO pins). 
-7.	Initialize NeoPixel LED (16 LEDs). 
-8.	Initialize:
-
--	Game state variables (active, press_count, etc.) 
--	Win detection variables (stable_count, win_latch) 
--	Sweep control variables
-
-Main Loop
-Step 1: Process App Input
-
--	Check for incoming app requests 
-- IF request contains servo number (1–5): 
-- 	Increment corresponding press_count[i]
-
-Step 2: Win Detection (Ultrasonic Sensor)
-
-- Measure distance using ultrasonic sensor
-     IF distance is:
-  
--	Valid AND between 2 cm and WIN_DISTANCE
-→ Increment stable_count 
-
-     ELSE
-
-→ Reset stable_count = 0 
-
--	IF stable_count ≥ REQUIRED_STABLE: 
--	Set win_latch = True 
--	Stop continuous servo 
--	Run celebration LED animation 
--	Clear LEDs
-
-Step 3: LED Animation
-
-IF game NOT won: 
-- 	Run rotating red LED pattern 
-
-Step 4: Servo Queue System (for 5 servos)
-
-FOR each servo i from 0 to 4:
-•	Start Movement 
-IF: 
-- Servo is NOT active 
-	press_count[i] > 0
-THEN: 
-- 	Move servo to TRIGGER_ANGLE 
--	Mark active[i] = True 
--	Set return_time[i] = now + RETURN_DELAY 
-
-	Return Movement 
-IF: 
--	Servo is active 
--	Current time ≥ return_time 
-THEN: 
-- 	Move servo back to 0° 
-- 	Turn off PWM (duty(0)) 
--	Mark active[i] = False 
--	Decrease press_count[i]
-
-Step 5: Continuous Servo Sweep
-
-IF game NOT won: 
--	Every SWEEP_INTERVAL: 
--	Toggle direction
-
-IF forward:
-→ Set speed = CONT_FWD 
-ELSE:
-→ Set speed = CONT_REV
-
-Step 6: Delay
-
-•	Wait 20 ms 
-•	Repeat loop
-
 This is the flowchart for the code:
 
 **Insert image below:**  
@@ -512,7 +424,7 @@ This is the flowchart for the code:
 [Somewhere during the project experimentation, we wanted to experiment with a load cell and map out the wins based on the amount/weight of the coins that landed on the load cell platform - but all our load cell hardware was faulty and due to unvailability of a replacement, we decidede to go ahead with our initial idea of using a ultrasonic sensor to give the win feedback to the player.
 - The code consists of 6 servos, one ultrasonic sensor and one neopixel.
 - One servo is continously sweeping and the player has to time the pulling of the pin accurately.
-- The 5 other servos are controlled by the buttons made on the app.
+- The 3 other servos are controlled by the buttons made on the app.
 - Once the coin falls, the signal is picked up by the ultrasonic sensor and it is sent to the neopixel and the win signal is shown.
 
 ]
@@ -630,6 +542,8 @@ Include:
 - Progress goals for each week were set and both members focused on completion of those tasks to ensure good time management
 - Tasks were done on time. On the cases of hardware failure, we did fall back a couple steps but it helped us understand the process more and the time crunch wasn't as heavily felt as we had planned time for probavle failures too.
 - Documentation was maintained throughout the process as tasks were getting done. As for the compilation of sketches, pictures and flowcharts - that happened at the end.
+- The last few days of assembly and finalization set us back a few steps due to physical planning and software misalignment - so we re-worked and made a better system of interation of the servos with the pins and the coins. The number of servos to 4 and added more obstacles to increase the difficulty of the game.
+- When the buttons on the app were not working as per the motion planned, we checked and rechecked code, wiring and app mechanics and identified a few discrapencies that would make the game work well at the end.
 
 ## 13.2 Task Breakdown
 
@@ -637,12 +551,12 @@ Include:
 |---|---|---|---:|---|---|---|
 | T1 | `[Finalize concept]` | `[Khushi and suksha]` | `2` | `[30th march]` | `None` | `Done` |
 | T2 | `[Complete BOM]` | `[Khushi and Suksha]` | `2` | `[6th april]` | `T1` | `Done` |
-| T3 | `[Test electronics]` | `[Khushi and Suksha]` | `2` | `[Continous]` | `T1` | `Done` |
-| T4 | `[Build structure]` | `[Khushi]` | `12` | `[16th April]` | `T1` | `Done` |
+| T3 | `[Test electronics]` | `[Khushi and Suksha]` | `5-6` | `[Continous]` | `T1` | `Done` |
+| T4 | `[Build structure]` | `[Khushi]` | `20` | `[16th April]` | `T1` | `Done` |
 | T5 | `[Write control code]` | `[Suksha]` | `16` | `[v1 was done on 6th April and v5 was done 17th April]` | `T3` | `Done` |
-| T6 | `[Integrate system]` | `[Khushi and Suksha]` | `12` | `[15th April]` | `T4, T5` | `Done` |
-| T7 | `[Playtest]` | `[Khushi and Suksha]` | `5` | `[Date]` | `18th April` | `Done` |
-| T8 | `[Refine and document]` | `[Khushi and suksha]` | `4` | `[20th april]` | `T7` | `Done` |
+| T6 | `[Integrate system]` | `[Khushi and Suksha]` | `16` | `[15th April]` | `T4, T5` | `Done` |
+| T7 | `[Playtest]` | `[Khushi and Suksha]` | `5` | `[18th April` | `T6` | `Done` |
+| T8 | `[Refine and document]` | `[Khushi and suksha]` | `14` | `[20th april]` | `T7` | `Done` |
 
 ## 13.3 Responsibility Split
 
@@ -703,7 +617,7 @@ Expected outcomes:
 | Week 1 | Finalize idea, sketch mechanism, identify components | Idea evolved from a simple servo mechanism to a game-based system with multiple servos and sensors | Added game logic (win condition + LED feedback) instead of just a mechanical output      | Start testing individual components (servo, ultrasonic, LEDs) |
 | Week 2 | Test electronics and basic mechanism  | Faced issues with servo movement, power supply, and calibration   | Adjusted servo angles, changed duty values, and introduced external power considerations | Stabilize individual components and begin combining them      |
 | Week 3 | Integrate system (code + hardware + structure)       | Integration was more complex than expected—WiFi/app control and timing issues came up              | Simplified logic, improved code structure, removed blocking delays  | Get a fully working playable prototype |
-| Week 4 | Refine interaction and finalize build  | System became stable, but small bugs and mechanical misalignments remained  | Fine-tuned timing, improved reliability, adjusted physical alignment   | Final testing, polish interaction, complete documentation     |
+| Week 4 | Refine interaction and finalize build  | System became stable, but small bugs and mechanical misalignments remained but were fixed in time  | Fine-tuned timing, improved reliability, adjusted physical alignment   | Final testing, polish interaction, complete documentation   |
  |
 
 ---
@@ -733,7 +647,7 @@ What is the single biggest uncertainty in your project at this stage?
 | What Needs Testing | How You Will Test It | Success Condition |
 |---|---|---|
 | `[Bluetooth connection]` | `[Connect wiring system to the ESP32 and run the code. Connect to WiFi and open the App. The goal is to test the working of the buttons]` | `[If the App opens the correct interface and the buttons make the servos move as intended. DONE.]` |
-| `[Mechanism movement]` | `[Test codes were made for each component, so running them would make us test the servo's function]` | `[If 5 servos move 90 degree and the 6th moves 125 degrees]` |
+| `[Mechanism movement]` | `[Test codes were made for each component, so running them would make us test the servo's function]` | `[If 3 servos move 45 degree and the 4th moves 125 degrees]` |
 | `[Sensor behavior]` | `[The sensor is connectd to the neopixel for feedback, so we run the test code for the ultrasonic and neopixel. We drop a coin in the vicinity of the sensor and make it read the signal]` | `[If the signal is picked up, the neopixel light will change from red to green and then mulitple colours as celebration]` |
 | `[App communication]` | `[Coonection to WiFi and button interface working]` | `[If the buttons make the servos move. Same as bluetooth test]` |
 
@@ -828,7 +742,7 @@ Describe the final version of your project.
 
 ## 18.3 What Still Needs Improvement
 - `[To make the game reset automatically ]`
-- `[Make the pins move in a smooth motion]`
+- `[Make the signal sensor more immediate]`
   
 
 ## 18.4 What Changed From the Original Plan
