@@ -665,14 +665,27 @@ What is the single biggest uncertainty in your project at this stage?
 
 | Date | Problem Found | Type | What You Tried | Result | Next Action |
 |---|---|---|---|---|---|
-| `[Date]` | `[Describe issue]` | `[Technical / Mechanical / UI / Gameplay]` | `[What you did]` | `[Worked / Partly / Failed]` | `[Next step]` |
-| `[Date]` | `[Describe issue]` | `[Type]` | `[What you did]` | `[Result]` | `[Next step]` |
+
+| []  | Servo rotates in an arc but mechanism requires straight linear motion | Mechanical| Tried adjusting servo horn position and linkage geometry | Partly | Redesign to convert rotation to linear motion (slider / lever) |
+|[]  | Servo not moving or jittering | Technical      | Checked wiring, corrected PWM pins and power supply | Worked | Stabilize power using external supply if needed |
+|[]  | Servo moving in wrong direction | Technical| Used invert logic in code (`angle = 180 - angle`)| Worked |'[Use same logic for all servos]'|
+|[]  | Servo not returning to original position | Technical  | Added return delay logic using `time.ticks_ms()`| Worked |  delay timing |
+|[] | Multiple servos moving together unintentionally| Technical | Added active state tracking and debugging prints                     | Partly | Implement proper locking system |
+|[] | Servo triggers stacking when multiple buttons pressed | Technical / UI | Limited trigger conditions and checked app input handling            | Partly | Add strict servo lock (only one at a time)  |
+|[] | Servo moving in wrong direction (specific pins)| Technical      | Adjusted invert array per servo pin                                  | Worked | Document pin-direction mapping clearly  |
+| [] | Servo resets to 0 instead of continuing from last position | Technical | Introduced `current_angle` tracking | Partly | Improve smooth relative movement  |
+|[18th april] | False win detection due to noisy distance values| Gameplay  | Introduced `stable_count` logic | Worked | Adjust threshold for sensitivity|
+| [18th april] | Neopixel animation interfering with timing | Technical| Reduced blocking delays and optimized loop | Worked | Possibly move to non-blocking animations|
+| [18th april] | Continuous servo not stopping correctly | Technical | changed value of stop PWM value (`CONT_STOP`)  | Worked | Calibrate again if needed |
+| [19th april] | power supply fried | mechanical | New power supply| Worked | [ Check if new power supply works and double check wiring ]|
+| [19th april] | Multiple button presses causing cascading servo movement | Technical / UI | Implemented strict global servo lock system| Worked | [ ]|
+| [20th april] | [Physical mechcanism malfuntion] | [Mechanical ] | [Rebuild physical setup] | [Worked] | [Add the servos and assemble wiring] |
 
 ## 16.4 Playtesting Notes
 
 | Tester | What They Did | What Confused Them | What They Enjoyed | What You Will Change |
 |---|---|---|---|---|
-| `[Teammate]` | `[Tested out the workings of the servos and the response mechanism]` | `[Why the servos weren't moving as intended]` | `[The overall flow of the game and the celevrations. They also liked how the game play was]` | `[The servo angles to match the max tension point to pull the pin out]` |
+| `[Teammate]` | `[Tested out the workings of the servos and the response mechanism]` | `[Why the servos weren't moving as intended]` | `[The overall flow of the game and the celebrations. They also liked how the game play was]` | `[The servo angles to match the max tension point to pull the pin out]` |
 | `[Teammate and peer]` | `[They played the game but noticed the neopixel going off before time]` | `[The neopixel was lighting up without even getting a win signal and resetting the game]` | `[They liked the animation of the LEDs but they needed to come onyl after the game was won - not after some amount of time]` | `[Change in code version]` |
 
 ---
