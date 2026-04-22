@@ -481,7 +481,7 @@ Reset: Win → reset game]
 | Item | Quantity | In Kit? | Need to Buy? | Estimated Cost | Material / Spec | Why This Choice? |
 |---|---:|---|---|---:|---|---|
 | `[ESP32]` | `1` | `Yes` | `No` | `0` | `[Spec]` | `[It powers the arduino set]` |
-| `[Servo motor]` | `[6]` | `[Yes]` | `[Yes]` | `[125x5]` | `[Spec]` | `[Servo motors are easy to program and work with]` |
+| `[Servo motor]` | `[4]` | `[Yes]` | `[Yes]` | `[125x5]` | `[Spec]` | `[Servo motors are easy to program and work with]` |
 | `[Neopixel]` | `[Qty]` | `[Yes]` | `[No]` | `[0]` | `[Spec]` | `[To be used as player feedback by using light for both game startup and win]` |
 | `[Ultrasonic sensor]` | `[1]` | `[Yes]` | `[No]` | `[0]` | `[Spec]` | `[To sense the coins as they fall into the win path]` |
 | `[Power supply]` | `[1]` | `[Yes/No]` | `[Yes/No]` | `[Cost]` | `[Spec]` | `[Gives additional voltage to the circuit - 5V]` |
